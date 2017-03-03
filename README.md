@@ -27,7 +27,7 @@ config({
 	  radius:number  球体的半径，默认为200，
 	  maxFont：number 最大的标签的字体大小，默认为30,
 	  color：true|色值 标签字体颜色，如果为true则都是随机颜色，如果是色值，标签就是这个颜色
-	  rotateAngleXbase：number 默认旋转速度基数，数越小速度越快，默认为300
+	  rotateAngleXbase：number 默认旋转速度基数，数越小速度越快，默认为300，可以通过改变数值的正负来改变旋转方向
 	  rotateAngleYbase：number 同上
 	  hover：boolean 是否开启悬浮联动， 默认为true
 })
