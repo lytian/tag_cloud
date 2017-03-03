@@ -4,11 +4,8 @@
 使用方法：
 
 1. 标签元素需要有类名 "tag"
-
 2. 标签元素需要包裹在 id 为 "tag-cloud"的父元素下
-
 3. 需要加载 tagCloud.js文件
-
 4. 参数：
 <pre><code>
 tagCloud.config({
