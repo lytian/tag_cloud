@@ -1,5 +1,49 @@
 ;(function(){
+	//获取标签父元素和标签数组
+	var tagContainer=document.getElementById('tag-cloud');
+	var tags=[];
 	var api={
+		add:function(opts){
+			//默认参数
+			var options=[
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+				{content:"标签",href:"###"},
+			];
+			var setting=[];
+			opts?setting=opts:setting=options;
+			//创建文档片段
+			var tagGroup=document.createDocumentFragment();
+			for(var i=0,length=setting.length;i<length;i++){
+				var tag=document.createElement("a");
+				tag.innerText=setting[i].content;
+				tag.setAttribute("href",setting[i].href);
+				tag.setAttribute("class","tag");
+				tag.style.cssText+="position:absolute;left:0;top:0;text-decoration:none;font-weight:bolder;"
+				tagGroup.appendChild(tag);
+				tags.push(tag);
+			};
+			tagContainer.appendChild(tagGroup);
+			//让标签元素相对标签云元素绝对定位
+			tagContainer.style.position="relative";
+			return this;
+		},
 		config:function(opts){
 			//默认参数
 			var options={
@@ -18,16 +62,6 @@
 			for (prop in opts){
 				setting[prop]=opts[prop]
 			};
-			//获取标签元素及父元素
-			var tagCloud=document.getElementById('tag-cloud');
-			var tags=tagCloud.getElementsByClassName("tag");
-			//让标签元素相对标签云元素绝对定位
-			tagCloud.style.position="relative";
-			for(var i=0;i<tags.length;i++){
-				tags[i].style.position="absolute";
-				tags[i].style.left="0";
-				tags[i].style.top="0";
-			}
 			var allTag=[];//标签数组
 			var rotateAngleX=Math.PI/setting.rotateAngleXbase;
 			var rotateAngleY=Math.PI/setting.rotateAngleYbase;
@@ -55,7 +89,7 @@
 			}
 			//设置每个标签的坐标位置和字体大小以及透明度
 			function setPosition(tag,r,maxFont){
-				tag.ele.style.transform="translate("+(tag.x+tagCloud.offsetWidth/2-tag.ele.offsetWidth/2)+"px,"+(tag.y+tagCloud.offsetHeight/2-tag.ele.offsetHeight/2)+"px)";
+				tag.ele.style.transform="translate("+(tag.x+tagContainer.offsetWidth/2-tag.ele.offsetWidth/2)+"px,"+(tag.y+tagContainer.offsetHeight/2-tag.ele.offsetHeight/2)+"px)";
 				tag.ele.style.opacity=tag.z/r/2+0.7;
 				tag.ele.style.fontSize=(tag.z/r/2+0.5)*maxFont+"px";
 			}
@@ -79,12 +113,12 @@
 			}
 			//鼠标悬浮改变转速和方向
 			if(setting.hover){
-				tagCloud.onmousemove=function(e){
+				tagContainer.onmousemove=function(e){
 					rotateAngleY=(e.pageX-this.offsetLeft-this.offsetWidth/2)/10000;
 					rotateAngleX=-(e.pageY-this.offsetTop-this.offsetHeight/2)/10000;
 				}
 			}else{
-				tagCloud.onmousemove=null;
+				tagContainer.onmousemove=null;
 			}
 			init(setting.radius);
 			//开始转动的函数
@@ -95,7 +129,7 @@
 					setPosition(allTag[i],setting.radius,setting.maxFont);
 				}
 			},17)
-		}
+		},
 	}
 	this.tagCloud=api;
 })();
