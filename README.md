@@ -7,7 +7,7 @@
 
 1.需要创建 id 为 tag-cloud 的空元素
 
-2.使用实例 tagCloud.add([]).copnfig({});
+2.需要引用 tagCloud.js;
 
 3.第一个方法的参数是一个数组，数组的每一项都是对象，每个对象有两对值
 

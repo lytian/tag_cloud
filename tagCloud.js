@@ -72,7 +72,6 @@
 					}else{
 						tags[i].style.color=setting.color;
 					}
-
 					// 获取球面上均匀的点的经纬度 θ = arccos( ((2*num)-1)/all - 1); Φ = θ*sqrt(all * π);
 					var angleX=Math.acos((2*(i+1)-1)/length-1);
 					var angleY=angleX*Math.sqrt(length*Math.PI);
