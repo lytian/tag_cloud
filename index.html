@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>标签云</title>
+		<style>
+			h1{
+				text-align: center;
+				margin: 50px auto;
+			}
+			#tag-cloud{
+				width: 500px;
+				height: 500px;
+				margin:0 auto;
+			}
+			ol{
+				width: 600px;
+				margin:0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>3D 标签云</h1>
+		<ol>
+			<h2>使用方法：</h2>
+			<li>需要创建 id 为 tag-cloud 的空元素</li>
+			<li>第一个方法的参数是一个数组，数组的每一项都是对象，每个对象有两对值</li>
+			<li>第一个方法的参数是一个数组，数组的每一项都是对象，每个对象有两对值</li>
+			<li>可以自定义：标签的内容和链接，球体半径，最大字体，标签字体颜色，默认旋转速度，是否开启悬浮联动</li>
+			<li>使用示例：查看源代码中的第二个 script 标签内容</li>
+		</ol>
+		<div id="tag-cloud">
+		</div>
+		<script src="tagCloud.js"></script>
+		<script>
+			tagCloud.add([
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+             {content:"哈哈哈",href:"###"},
+         ]).config({
+             radius:200,
+             maxFont:30,
+             color:true,
+             rotateAngleXbase:200,
+             rotateAngleYbase:200,
+             hover:true
+         })
+		</script>
+	</body>
+</html>
